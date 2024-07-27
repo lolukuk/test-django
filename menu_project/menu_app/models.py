@@ -21,4 +21,7 @@ class MenuItem(models.Model):
     def __str__(self):
         return self.name
 
-
+    def get_url(self):
+        if self.named_url:
+            return reverse(self.named_url)
+        return self.url
